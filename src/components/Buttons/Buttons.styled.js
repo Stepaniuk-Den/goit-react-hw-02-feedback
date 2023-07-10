@@ -14,10 +14,10 @@ export const StyledBtn = styled.button`
   transition: all 0.3s ease-in-out;
   scale: 1;
   &:hover {
-    background-color: #888;
+    background-color: #777;
     color: white;
-    box-shadow: inset rgba(0, 0, 0, 0.25) 0px 14px 28px,
-      inset rgba(0, 0, 0, 0.22) 0px 10px 10px;
+    box-shadow: inset rgba(255, 255, 255, 0.25) 0px 14px 28px,
+      inset rgba(255, 255, 255, 0.22) 0px 10px 10px;
     scale: 1.2;
   }
 `;

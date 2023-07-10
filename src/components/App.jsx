@@ -9,6 +9,7 @@ export class App extends Component {
     bad: 0,
   };
 
+
   goodClick = () => {
     this.setState(prevState => ({
       good: prevState.good + 1,
