@@ -9,22 +9,12 @@ export class App extends Component {
     bad: 0,
   };
 
+  clickFeedback = e => {
+    this.setState(prevState => ({
+      [e.target.name]: prevState[e.target.name] + 1,
+    }));
+  };
 
-  goodClick = () => {
-    this.setState(prevState => ({
-      good: prevState.good + 1,
-    }));
-  };
-  neutralClick = () => {
-    this.setState(prevState => ({
-      neutral: prevState.neutral + 1,
-    }));
-  };
-  badClick = () => {
-    this.setState(prevState => ({
-      bad: prevState.bad + 1,
-    }));
-  };
   totalFeedback = () => {
     return this.state.good + this.state.neutral + this.state.bad;
   };
@@ -37,11 +27,7 @@ export class App extends Component {
   render() {
     return (
       <div className="container">
-        <Buttons
-          onGoodClick={this.goodClick}
-          onNeutralClick={this.neutralClick}
-          onBadClick={this.badClick}
-        />
+        <Buttons clickFeedback={this.clickFeedback} />
         <Statistics
           state={this.state}
           total={this.totalFeedback()}
