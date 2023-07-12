@@ -1,6 +1,7 @@
 import { Component } from 'react';
 import Buttons from './Buttons/Buttons';
 import Statistics from './Statistics/Statistics';
+import Notification from './Statistics/Notification';
 
 export class App extends Component {
   state = {
@@ -25,14 +26,20 @@ export class App extends Component {
   };
 
   render() {
+    const options = Object.keys(this.state); // або змінна з об'єктом
+    const total = this.totalFeedback();
     return (
       <div className="container">
-        <Buttons clickFeedback={this.clickFeedback} />
-        <Statistics
-          state={this.state}
-          total={this.totalFeedback()}
-          positivePercentage={this.positivePercentage()}
-        />
+        <Buttons clickFeedback={this.clickFeedback} options={options} />
+        {Boolean(total) ? (
+          <Statistics
+            state={this.state}
+            total={this.totalFeedback()}
+            positivePercentage={this.positivePercentage()}
+          />
+        ) : (
+          <Notification />
+        )}
       </div>
     );
   }

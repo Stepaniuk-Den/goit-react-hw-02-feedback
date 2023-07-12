@@ -1,28 +1,31 @@
 import Sections from 'components/Sections/Sections';
-import CountBadFeedback from './CountBadFeedback';
-import CountGoodFeedback from './CountGoodFeedback';
-import CountNeutralFeedback from './CountNeutralFeedback';
-import CountPositiveFeedbackPercentage from './CountPositiveFeedbackPercentage';
-import CountTotalFeedback from './CountTotalFeedback';
-import Notification from './Notification';
 import PropTypes from 'prop-types';
 
 const Statistics = ({ state, total, positivePercentage }) => {
   return (
     <Sections title="Statistics">
-      {Boolean(total) ? (
-        <ul>
-          <CountGoodFeedback good={state.good} />
-          <CountNeutralFeedback neutral={state.neutral} />
-          <CountBadFeedback bad={state.bad} />
-          <CountTotalFeedback total={total} />
-          <CountPositiveFeedbackPercentage
-            positivePercentage={positivePercentage}
-          />
-        </ul>
-      ) : (
-        <Notification />
-      )}
+      <ul>
+        <li>
+          <p>Good: </p>
+          <span>{state.good}</span>
+        </li>
+        <li>
+          <p>Neutral: </p>
+          <span>{state.neutral}</span>
+        </li>
+        <li>
+          <p>Bad: </p>
+          <span>{state.bad}</span>
+        </li>
+        <li>
+          <p>Total: </p>
+          <span>{total}</span>
+        </li>
+        <li>
+          <p>Positive feedback: </p>
+          <span>{positivePercentage}</span>
+        </li>
+      </ul>
     </Sections>
   );
 };
